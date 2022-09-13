@@ -1,0 +1,30 @@
+spring:
+  thymeleaf:
+    cache: false # 关闭缓存,默认开启
+  datasource:
+    url: jdbc:mysql://localhost:3306/ag_bpmn_v1?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=CTT&nullCatalogMeansCurrent=true
+    username: "root"
+    password: "010426"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+mybatis:
+  mapper-locations: classpath:mapping/*.xml  #对应mapper映射xml文件所在路径
+  type-aliases-package: com.processes.ag_bpmn_v1.entity  #对应实体类路径
+  configuration:
+    map-underscore-to-camel-case=true:
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false
+
+  server:
+    servlet:
+      encoding:
+        charset: GBK
+        enabled: true
+        force: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

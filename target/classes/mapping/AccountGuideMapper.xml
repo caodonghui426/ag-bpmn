@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.processes.ag_bpmn_v1.mapper.AccountGuideMapper">
+    <resultMap id="BaseResultMap" type="com.processes.ag_bpmn_v1.entity.AccountGuide">
+        <result column="pid" jdbcType="INTEGER" property="processId" />
+        <result column="son_id" jdbcType="INTEGER" property="son_id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="guide_info" jdbcType="VARCHAR" property="guide_info" />
+
+    </resultMap>
+    <!--查询用户信息-->
+    <select id="getAccountGuide" resultType="com.processes.ag_bpmn_v1.entity.AccountGuide">
+        select * from account_guide
+        where
+              username = #{username}
+          and
+            pid = #{pid}
+          and
+            son_id = #{son_id}
+
+
+    </select>
+    <!--删除用户信息-->
+    <delete id="delete" >
+        delete from account_guide
+        where
+            username = #{username}
+          and
+            pid = #{pid}
+          and
+            son_id = #{son_id}
+    </delete>
+    <!--返回所有用户信息-->
+    <select id="selectAll"  resultType="com.processes.ag_bpmn_v1.entity.AccountGuide">
+        select * from account_guide
+    </select>
+
+    <!--增加用户信息-->
+    <insert id="save" parameterType="com.processes.ag_bpmn_v1.entity.AccountGuide" >
+        insert into account_guide
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="username != null" >
+                username,
+            </if>
+            <if test="pid != null" >
+                pid,
+            </if>
+            <if test="son_id != null" >
+                son_id,
+            </if>
+            <if test="guide_info != null" >
+                guide_info,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="username != null" >
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null" >
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="son_id != null" >
+                #{son_id,jdbcType=INTEGER},
+            </if>
+
+            <if test="guide_info != null" >
+                #{guide_info,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--根据username pid sonid 更改用户信息-->
+    <update id="update" parameterType="com.processes.ag_bpmn_v1.entity.AccountGuide">
+        update account_guide
+        <set >
+            <if test="username != null" >
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null" >
+                pid = #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="son_id != null" >
+                son_id = #{son_id,jdbcType=INTEGER},
+            </if>
+
+            <if test="guide_info != null" >
+                guide_info = #{guide_info,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where son_id = #{son_id,jdbcType=INTEGER}
+        and username = #{username,jdbcType=VARCHAR}
+        and pid = #{pid,jdbcType=INTEGER}
+
+
+    </update>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.flowable.org/processdef">
+  <process id="a2" name="rice" isExecutable="true">
+    <startEvent id="sid-7B0E6AF7-BDFD-41F5-8F98-9AC7141FADDE" />
+    <sequenceFlow id="sid-0A552471-C56F-49FE-8FE2-9551B11A3E1C" sourceRef="sid-7B0E6AF7-BDFD-41F5-8F98-9AC7141FADDE" targetRef="sid-695491C0-294F-427B-9864-4D2E5C5206BB" />
+    <sequenceFlow id="sid-69C69229-8B48-4C6A-9A5F-FAD2BF5E6F3E" sourceRef="sid-695491C0-294F-427B-9864-4D2E5C5206BB" targetRef="sid-351D30FC-5634-473B-B1BC-8711BC2F8E90" />
+    <sequenceFlow id="sid-A1F14DA5-851D-44F8-B629-8CA197DA60B4" sourceRef="sid-351D30FC-5634-473B-B1BC-8711BC2F8E90" targetRef="sid-0BD1F4B9-AA84-4F6B-B2EF-A09F90239FA5" />
+    <sequenceFlow id="sid-953DEB4C-D4E0-4A61-AE60-46BE7210B60A" sourceRef="sid-0BD1F4B9-AA84-4F6B-B2EF-A09F90239FA5" targetRef="sid-8DDB8C5C-54B7-4878-AF41-FFBF46560117" />
+    <endEvent id="sid-8DDB8C5C-54B7-4878-AF41-FFBF46560117">
+      <incoming>sid-953DEB4C-D4E0-4A61-AE60-46BE7210B60A</incoming>
+    </endEvent>
+    <userTask id="sid-695491C0-294F-427B-9864-4D2E5C5206BB" name="清雪扣棚" flowable:candidateGroups="A">
+      <documentation>1、3月上中旬扣棚，增温促化，提高育秧床土的地温，利于播种出苗。\r\n2、清理大棚周边积雪，棚内残雪化尽，清雪达到床面无残雪。\r\n</documentation>
+      <incoming>sid-0A552471-C56F-49FE-8FE2-9551B11A3E1C</incoming>
+      <outgoing>sid-69C69229-8B48-4C6A-9A5F-FAD2BF5E6F3E</outgoing>
+    </userTask>
+    <userTask id="sid-351D30FC-5634-473B-B1BC-8711BC2F8E90" name="床土配制" flowable:candidateGroups="B">
+      <documentation>在地里用铁锹人工取土，扔到车斗里；开车运到大棚前，卸土；将土放置一段时间，晾晒；雇佣粉碎车粉碎土块；塑料布遮盖，放至开春；开春后，粉土过筛；将筛好的土混合壮秧剂装到车斗，然后再把土从车斗里卸出来，装到桶里，运送到大棚里；把土从桶里倒出，播到苗床上。</documentation>
+      <incoming>sid-69C69229-8B48-4C6A-9A5F-FAD2BF5E6F3E</incoming>
+      <outgoing>sid-A1F14DA5-851D-44F8-B629-8CA197DA60B4</outgoing>
+    </userTask>
+    <userTask id="sid-0BD1F4B9-AA84-4F6B-B2EF-A09F90239FA5" name="置床处理" flowable:candidateGroups="C">
+      <documentation>每 10 平方米内高低差不超过 0.5 厘米，化冻深度达到 30 厘米；\r\n按规程做好置床调酸、施肥、消毒工作，置床 PH 在 4.5-5.5 之间</documentation>
+      <incoming>sid-A1F14DA5-851D-44F8-B629-8CA197DA60B4</incoming>
+      <outgoing>sid-953DEB4C-D4E0-4A61-AE60-46BE7210B60A</outgoing>
+    </userTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_a11">
+    <bpmndi:BPMNPlane id="BPMNPlane_a11" bpmnElement="a11">
+      <bpmndi:BPMNEdge id="BPMNEdge_sid-953DEB4C-D4E0-4A61-AE60-46BE7210B60A" bpmnElement="sid-953DEB4C-D4E0-4A61-AE60-46BE7210B60A">
+        <omgdi:waypoint x="490" y="55" />
+        <omgdi:waypoint x="566" y="55" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_sid-A1F14DA5-851D-44F8-B629-8CA197DA60B4" bpmnElement="sid-A1F14DA5-851D-44F8-B629-8CA197DA60B4">
+        <omgdi:waypoint x="355" y="55" />
+        <omgdi:waypoint x="390" y="55" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_sid-69C69229-8B48-4C6A-9A5F-FAD2BF5E6F3E" bpmnElement="sid-69C69229-8B48-4C6A-9A5F-FAD2BF5E6F3E">
+        <omgdi:waypoint x="220" y="55" />
+        <omgdi:waypoint x="255" y="55" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_sid-0A552471-C56F-49FE-8FE2-9551B11A3E1C" bpmnElement="sid-0A552471-C56F-49FE-8FE2-9551B11A3E1C">
+        <omgdi:waypoint x="75" y="55" />
+        <omgdi:waypoint x="120" y="55" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_sid-7B0E6AF7-BDFD-41F5-8F98-9AC7141FADDE" bpmnElement="sid-7B0E6AF7-BDFD-41F5-8F98-9AC7141FADDE">
+        <omgdc:Bounds x="45" y="40" width="30" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10r8utb_di" bpmnElement="sid-695491C0-294F-427B-9864-4D2E5C5206BB">
+        <omgdc:Bounds x="120" y="15" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1i8gmo5_di" bpmnElement="sid-351D30FC-5634-473B-B1BC-8711BC2F8E90">
+        <omgdc:Bounds x="255" y="15" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_189fojl_di" bpmnElement="sid-0BD1F4B9-AA84-4F6B-B2EF-A09F90239FA5">
+        <omgdc:Bounds x="390" y="15" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_sid-8DDB8C5C-54B7-4878-AF41-FFBF46560117" bpmnElement="sid-8DDB8C5C-54B7-4878-AF41-FFBF46560117">
+        <omgdc:Bounds x="566" y="41" width="28" height="28" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

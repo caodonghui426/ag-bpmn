@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/DMN/20151101" name="测试" namespace="http://www.flowable.org/dmn">
+    <decision id="" name="测试">
+        <description>测试用决策表</description>
+        <decisionTable hitPolicy="FIRST">
+            <input label="气温">
+                <inputExpression id="inputExpression_1" typeRef="number">
+                    <text>temperature</text>
+                </inputExpression>
+            </input>
+            <input label="播种日期">
+                <inputExpression id="inputExpression_2" typeRef="date">
+                    <text>sowing_date</text>
+                </inputExpression>
+            </input>
+            <output id="outputExpression_3" label="采取行为" name="action" typeRef="string"/>
+            <output id="outputExpression_4" label="选取肥料" name="fertilizer" typeRef="string"/>
+            <rule>
+                <inputEntry id="inputEntry_1_1">
+                    <text><![CDATA[>28]]></text>
+                </inputEntry>
+                <inputEntry id="inputEntry_2_1">
+                    <text><![CDATA[>"2020-12-12"]]></text>
+                </inputEntry>
+                <outputEntry id="outputEntry_3_1">
+                    <text><![CDATA[1、xxxxxxx 2、xxxxxx]]></text>
+                </outputEntry>
+                <outputEntry id="outputEntry_4_1">
+                    <text><![CDATA[肥料名：xxxx]]></text>
+                </outputEntry>
+            </rule>
+            <rule>
+                <inputEntry id="inputEntry_1_2">
+                    <text><![CDATA[>26]]></text>
+                </inputEntry>
+                <inputEntry id="inputEntry_2_2">
+                    <text><![CDATA[>"2020-11-14"]]></text>
+                </inputEntry>
+                <outputEntry id="outputEntry_3_2">
+                    <text><![CDATA[1、xxxxxxx 2、xxxxxx]]></text>
+                </outputEntry>
+                <outputEntry id="outputEntry_4_2">
+                    <text><![CDATA[肥料名：xxxx]]></text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+</definitions>
